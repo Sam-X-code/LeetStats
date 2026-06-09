@@ -99,13 +99,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
             });
 
-            const data = await response.json();
+            const parsedata = await response.json();
 
-            console.log(data);
+            // console.log(data);
 
 
             // Check if user exists
-            if (!data.data.matchedUser) {
+            if (!parsedata.data.matchedUser) {
                 alert("User not found");
                 return;
             }
@@ -113,22 +113,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Solved Stats
             const solvedStats =
-                data.data.matchedUser.submitStats.acSubmissionNum;
+                parsedata.data.matchedUser.submitStats.acSubmissionNum;
 
 
             // Submission Stats
             const totalStats =
-                data.data.matchedUser.submitStats.totalSubmissionNum;
+                parsedata.data.matchedUser.submitStats.totalSubmissionNum;
 
 
             // Total Questions Count
             const allQuestionsCount =
-                data.data.allQuestionsCount;
+                parsedata.data.allQuestionsCount;
 
 
             // Profile
             const profile =
-                data.data.matchedUser.profile;
+                parsedata.data.matchedUser.profile;
 
 
             // Solved Questions
@@ -281,30 +281,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
             // Console Logs
-            console.log("Username:", username);
-            console.log("Ranking:", profile.ranking);
-            console.log("Reputation:", profile.reputation);
-            console.log("Star Rating:", profile.starRating);
-            console.log("Total Solved:",
-                allSolved, "/", allCount);
-            console.log("Easy:",
-                easySolved, "/", easyCount);
-            console.log("Medium:",
-                mediumSolved, "/", mediumCount);
-            console.log("Hard:",
-                hardSolved, "/", hardCount);
-            console.log("Total Submissions:",
-                allSubmissions);
-            console.log("Easy Submissions:",
-                easySubmissions);
-            console.log("Medium Submissions:",
-                mediumSubmissions);
-            console.log("Hard Submissions:",
-                hardSubmissions);
+            // console.log("Username:", username);
+            // console.log("Ranking:", profile.ranking);
+            // console.log("Reputation:", profile.reputation);
+            // console.log("Star Rating:", profile.starRating);
+            // console.log("Total Solved:",
+            //     allSolved, "/", allCount);
+            // console.log("Easy:",
+            //     easySolved, "/", easyCount);
+            // console.log("Medium:",
+            //     mediumSolved, "/", mediumCount);
+            // console.log("Hard:",
+            //     hardSolved, "/", hardCount);
+            // console.log("Total Submissions:",
+            //     allSubmissions);
+            // console.log("Easy Submissions:",
+            //     easySubmissions);
+            // console.log("Medium Submissions:",
+            //     mediumSubmissions);
+            // console.log("Hard Submissions:",
+            //     hardSubmissions);
 
 
             // Show Stats
-            statsContainer.style.display = "block";
+            statsContainer.style.display = "flex";
 
         }
         catch (error) {
@@ -325,9 +325,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Button Click
     fetchBtn.addEventListener('click', function () {
-
         const username = usernameInput.value.trim();
-
         console.log("login username:", username);
 
         if (!validateUsername(username)) {

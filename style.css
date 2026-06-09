@@ -20,7 +20,7 @@ body{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: min(1100px, 95vw);
+    width: min(1000px, 90vw);
     background-color: #9ba099;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -40,7 +40,7 @@ h1{
     flex-direction: column;
     justify-content:start;
     gap: 10px;
-    margin-bottom: 20px;
+    
 }
 
 .input-group{
@@ -49,8 +49,6 @@ h1{
     align-items: center;
     gap: 10px;
     width: 100%;
-
-
 }
 
 #username{
@@ -134,7 +132,7 @@ h1{
     width: 110px;
     height: 110px;
 
-    background-color: #1e1e1e;
+     background-color: #1e1e1e;
 
     border-radius: 50%;
 }
@@ -142,7 +140,6 @@ h1{
 .progress-circle .progress-text {
     position: relative;
     z-index: 2;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -152,13 +149,13 @@ h1{
 .difficulty {
     font-size: 16px;
     font-weight: 600;
-
     margin-bottom: 6px;
 }
 
 .count {
     font-size: 20px;
     font-weight: 700;
+    color: #2be319;
 }
 
 .total {
@@ -169,62 +166,106 @@ h1{
 /* ...............cards-styling................ */
 
 .stats-cards {
-
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 20px;
-
     margin-top: 20px;
-
     width: 100%;
 }
 
 .card {
-
     flex: 0 0 calc(50% - 10px);
-
     background-color: #1e1e1e;
-
     color: white;
-
     padding: 20px;
-
     border-radius: 12px;
-
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     gap: 10px;
-
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-
     transition: transform 0.3s ease;
-
     min-width: 0;
 }
 
 .card:hover {
-
+    color: #3fca35;
     transform: translateY(-5px);
 }
 
 .card-title {
-
     font-size: 1rem;
-
     color: #bdbdbd;
 }
 
 .card-value {
-
     font-size: 1rem;
-
     font-weight: bold;
-
     word-break: break-word;
+}
+
+/* ........ Responsive Design ........ */
+
+@media (max-width: 750px) {
+    .container {
+        width: 95vw;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #username,#fetch-btn {
+        width: 100%;
+    }
+
+    .progress {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .progress-circle {
+        width: 110px;
+        height: 110px;
+    }
+
+    .progress-circle::before {
+        width: 92px;
+        height: 92px;
+    }
+
+    .difficulty {
+        font-size: 14px;
+    }
+
+    .count {
+        color: #2be319;;
+        font-size: 16px;
+    }
+
+    .total {
+        font-size: 12px;
+    }
+
+    .stats-cards {
+        flex-direction: column;
+    }
+
+    .card {
+        flex: 0 0 100%;
+    }
+
+    .card-title {
+        font-size: 0.95rem;
+    }
+
+    .card-value {
+        font-size: 1.2rem;
+    }
 }
