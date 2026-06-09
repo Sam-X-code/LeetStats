@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return false;
         }
 
-        const regex = /^[a-zA-Z0-9_-]{1,15}$/;
+        const regex = /^[a-zA-Z0-9_-]+$/;
 
         if (!regex.test(username)) {
             alert("Invalid Username");
