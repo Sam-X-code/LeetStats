@@ -1,10 +1,8 @@
-# 🚀 LeetStats — LeetCode Analytics Dashboard
+# 🚀 LeetStats — Your Personal LeetCode Analytics Dashboard
 
-A modern and responsive dashboard that visualizes your LeetCode journey with animated progress circles, detailed submission analytics, and user profile insights.
+A modern and responsive dashboard that visualizes your LeetCode journey with beautiful animated progress circles, detailed statistics, and profile insights.
 
-
-
-\
+![LeetStats Banner](https://img.shields.io/badge/LeetStats-Analytics%20Dashboard-green?style=for-the-badge)
 
 ---
 
