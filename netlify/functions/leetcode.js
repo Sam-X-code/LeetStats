@@ -1,5 +1,21 @@
-```javascript id="jlwmd4"
-exports.handler = async function(event) {
+```javascript id="0jlwma"
+exports.handler = async (event) => {
+
+    // Handle CORS preflight
+    if (event.httpMethod === "OPTIONS") {
+
+        return {
+            statusCode: 200,
+
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Content-Type",
+                "Access-Control-Allow-Methods": "POST, OPTIONS",
+            },
+
+            body: "",
+        };
+    }
 
     try {
 
@@ -11,10 +27,10 @@ exports.handler = async function(event) {
                 method: "POST",
 
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
                 },
 
-                body: JSON.stringify(body)
+                body: JSON.stringify(body),
             }
         );
 
@@ -25,21 +41,27 @@ exports.handler = async function(event) {
             statusCode: 200,
 
             headers: {
-                "Access-Control-Allow-Origin": "*"
+                "Access-Control-Allow-Origin": "*",
+                "Content-Type": "application/json",
             },
 
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
         };
+
     }
-    catch(error) {
+    catch (error) {
 
         return {
 
             statusCode: 500,
 
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+            },
+
             body: JSON.stringify({
-                error: error.message
-            })
+                error: error.message,
+            }),
         };
     }
 };
