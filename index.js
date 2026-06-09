@@ -40,8 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Fetch LeetCode User Details
     async function fetchUserDetails(username) {
 
-        const targetURL =
-            "https://corsproxy.io/?https://leetcode.com/graphql";
+        const targetURL ="/.netlify/functions/leetcode";
 
         const query = `
         query userSessionProgress($username: String!) {
