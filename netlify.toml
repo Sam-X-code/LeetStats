@@ -1,0 +1,4 @@
+```toml id="jlwmh2"
+[functions]
+directory = "netlify/functions"
+```
