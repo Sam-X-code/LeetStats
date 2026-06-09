@@ -1,7 +1,6 @@
-const https = require("https");
-
 exports.handler = async (event) => {
 
+    // Handle CORS preflight
     if (event.httpMethod === "OPTIONS") {
 
         return {
@@ -17,68 +16,52 @@ exports.handler = async (event) => {
         };
     }
 
-    return new Promise((resolve) => {
+    try {
 
-        let body = "";
+        const body = JSON.parse(event.body);
 
-        event.body && (body = event.body);
-
-        const options = {
-
-            hostname: "leetcode.com",
-
-            path: "/graphql",
-
-            method: "POST",
-
-            headers: {
-                "Content-Type": "application/json",
-                "Content-Length": Buffer.byteLength(body),
-            },
-        };
-
-        const req = https.request(options, (res) => {
-
-            let data = "";
-
-            res.on("data", (chunk) => {
-                data += chunk;
-            });
-
-            res.on("end", () => {
-
-                resolve({
-
-                    statusCode: 200,
-
-                    headers: {
-                        "Access-Control-Allow-Origin": "*",
-                        "Content-Type": "application/json",
-                    },
-
-                    body: data,
-                });
-            });
-        });
-
-        req.on("error", (error) => {
-
-            resolve({
-
-                statusCode: 500,
+        const response = await fetch(
+            "https://leetcode.com/graphql",
+            {
+                method: "POST",
 
                 headers: {
-                    "Access-Control-Allow-Origin": "*",
+                    "Content-Type": "application/json",
                 },
 
-                body: JSON.stringify({
-                    error: error.message,
-                }),
-            });
-        });
+                body: JSON.stringify(body),
+            }
+        );
 
-        req.write(body);
+        const data = await response.json();
 
-        req.end();
-    });
+        return {
+
+            statusCode: 200,
+
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Content-Type": "application/json",
+            },
+
+            body: JSON.stringify(data),
+        };
+
+    }
+    catch (error) {
+
+        return {
+
+            statusCode: 500,
+
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+            },
+
+            body: JSON.stringify({
+                error: error.message,
+            }),
+        };
+    }
 };
+
