@@ -4,6 +4,9 @@ A modern and responsive dashboard that visualizes your LeetCode journey with bea
 
 ![LeetStats Banner](https://img.shields.io/badge/LeetStats-Analytics%20Dashboard-green?style=for-the-badge)
 
+#  Live Demo
+🔗https://serene-profiterole-3bb039.netlify.app/
+
 ---
 
 # ✨ Features
@@ -137,12 +140,6 @@ LeetStats/
 │
 └── README.md
 ```
-
----
-
-# 🚀 Live Demo
-
-🔗https://serene-profiterole-3bb039.netlify.app/
 
 ---
 
